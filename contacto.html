@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<!--
+===============================================================================
+TECHSOLUTIONS PRO - PÁGINA DE CONTACTO
+===============================================================================
+
+ÍNDICE DE CONTENIDO:
+1. HEAD - Configuración y recursos
+   - Bootstrap 5 CSS local
+   - Font Awesome para iconos
+   - Google Fonts (Inter)
+   - Estilos personalizados
+
+2. NAVEGACIÓN
+   - Navbar Bootstrap responsivo
+   - Enlace activo en "Contacto"
+
+3. HERO CONTACTO
+   - Título de página
+   - Descripción de servicios de contacto
+
+4. INFORMACIÓN DE CONTACTO
+   - 4 tarjetas informativas (col-md-6 col-lg-3)
+   - Dirección con enlace a mapas
+   - Teléfonos con enlaces directos
+   - Email con mailto
+   - Horarios de atención
+
+5. FORMULARIO DE CONTACTO ⭐ COMPONENTE PRINCIPAL
+   - Formulario Bootstrap completo
+   - Campos: Nombre, Email, Teléfono, Empresa, Mensaje
+   - Validación JavaScript integrada
+   - Diseño responsive en 2 columnas
+   - Botón de envío estilizado
+
+6. MAPA/UBICACIÓN
+   - Sección para integración de mapas
+   - Información de ubicación física
+
+7. CALL TO ACTION FINAL
+   - Invitación a contactar
+   - Botones adicionales
+
+8. FOOTER
+   - Enlaces de navegación
+   - Información de contacto
+
+COMPONENTES BOOTSTRAP:
+- Forms (input groups, validation)
+- Cards para información
+- Grid system responsive
+- Buttons y badges
+- Typography classes
+
+FUNCIONALIDADES:
+- Validación de formulario
+- Enlaces directos (tel:, mailto:)
+- Layout responsive
+- Iconografía Font Awesome
+
+DESARROLLADO POR:
+SanchezDev.com
+Rodrigo Sanchez - rodrigo@sanchezdev.com
+© 2025 Todos los derechos reservados
+
+===============================================================================
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions Pro - Contacto</title>
+    
+    <!-- Bootstrap 5 CSS Local -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="TechSolutions Pro - Contacto. Ponte en contacto con nuestro equipo para transformar tu empresa.">
+    <meta name="keywords" content="contacto, cotizar, formulario, soporte, consultoría">
+    <meta name="author" content="TechSolutions Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-rocket me-2 fs-4"></i>
+                <span class="fw-bold">TechSolutions Pro</span>
+            </a>
+            
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="contacto.html">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section d-flex align-items-center bg-gradient-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold mb-4">Contáctanos</h1>
+                    <p class="fs-5 mb-5">¿Tienes un proyecto en mente? Hablemos y convirtamos tu idea en realidad</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#contacto" class="btn btn-light btn-lg">Enviar Mensaje</a>
+                        <a href="#info" class="btn btn-outline-light btn-lg">Información de Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    TARJETAS DE INFORMACIÓN DE CONTACTO
+    Grid responsivo que muestra información de contacto usando:
+    - col-md-6 col-lg-3: 1 columna móvil, 2 tablet, 4 desktop
+    - Cards Bootstrap con altura uniforme (h-100)
+    - Iconos Font Awesome para representación visual
+    - Enlaces funcionales para acciones directas (mapas, llamadas, email)
+    -->
+    <section id="info" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Formas de Contacto</h2>
+                    <p class="section-subtitle">Múltiples canales para comunicarte con nuestro equipo</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Dirección -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card contact-card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h5 class="card-title">Dirección</h5>
+                            <p class="card-text">Av. Tecnología 123<br>Santiago, Chile<br>Código Postal: 7500000</p>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline-primary btn-sm">Ver en Mapa</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teléfono -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card contact-card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h5 class="card-title">Teléfono</h5>
+                            <p class="card-text">+56 2 2123 4567<br>+56 9 8765 4321<br>Lun-Vie: 9:00-18:00</p>
+                            <a href="tel:+56221234567" class="btn btn-outline-primary btn-sm">Llamar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card contact-card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h5 class="card-title">Email</h5>
+                            <p class="card-text">info@techsolutionspro.cl<br>ventas@techsolutionspro.cl<br>soporte@techsolutionspro.cl</p>
+                            <a href="mailto:info@techsolutionspro.cl" class="btn btn-outline-primary btn-sm">Enviar Email</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card contact-card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="contact-icon mb-3">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h5 class="card-title">Chat en Vivo</h5>
+                            <p class="card-text">Asistencia inmediata<br>Respuesta en menos de 5 min<br>Disponible 24/7</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openChat()">Iniciar Chat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section id="contacto" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Envíanos un Mensaje</h2>
+                    <p class="section-subtitle">Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <form id="contactForm" class="needs-validation" novalidate>
+                                <div class="row g-4">
+                                    <!-- Información Personal -->
+                                    <div class="col-12">
+                                        <h5 class="mb-3"><i class="fas fa-user me-2 text-primary"></i>Información Personal</h5>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label">Nombre Completo *</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa tu nombre completo.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Por favor ingresa un email válido.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label">Teléfono</label>
+                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678">
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="empresa" class="form-label">Empresa</label>
+                                        <input type="text" class="form-control" id="empresa" name="empresa">
+                                    </div>
+                                    
+                                    <!-- Información del Proyecto -->
+                                    <div class="col-12 mt-5">
+                                        <h5 class="mb-3"><i class="fas fa-project-diagram me-2 text-primary"></i>Información del Proyecto</h5>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="servicio" class="form-label">Servicio de Interés *</label>
+                                        <select class="form-select" id="servicio" name="servicio" required>
+                                            <option value="">Selecciona un servicio</option>
+                                            <option value="desarrollo-web">Desarrollo Web</option>
+                                            <option value="app-movil">Aplicaciones Móviles</option>
+                                            <option value="analytics">Analytics & BI</option>
+                                            <option value="cloud">Soluciones Cloud</option>
+                                            <option value="seguridad">Ciberseguridad</option>
+                                            <option value="soporte">Soporte Técnico</option>
+                                            <option value="consultoria">Consultoría</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Por favor selecciona un servicio.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="presupuesto" class="form-label">Presupuesto Estimado</label>
+                                        <select class="form-select" id="presupuesto" name="presupuesto">
+                                            <option value="">Selecciona un rango</option>
+                                            <option value="menos-5k">Menos de $5,000 USD</option>
+                                            <option value="5k-15k">$5,000 - $15,000 USD</option>
+                                            <option value="15k-50k">$15,000 - $50,000 USD</option>
+                                            <option value="50k-100k">$50,000 - $100,000 USD</option>
+                                            <option value="mas-100k">Más de $100,000 USD</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="timeline" class="form-label">Timeline Esperado</label>
+                                        <select class="form-select" id="timeline" name="timeline">
+                                            <option value="">Selecciona timeline</option>
+                                            <option value="inmediato">Inmediato (ASAP)</option>
+                                            <option value="1-mes">Dentro de 1 mes</option>
+                                            <option value="3-meses">Dentro de 3 meses</option>
+                                            <option value="6-meses">Dentro de 6 meses</option>
+                                            <option value="mas-6-meses">Más de 6 meses</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="prioridad" class="form-label">Prioridad del Proyecto</label>
+                                        <select class="form-select" id="prioridad" name="prioridad">
+                                            <option value="">Selecciona prioridad</option>
+                                            <option value="baja">Baja - Explorando opciones</option>
+                                            <option value="media">Media - Planificando implementación</option>
+                                            <option value="alta">Alta - Necesidad urgente</option>
+                                            <option value="critica">Crítica - Emergencia empresarial</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label for="mensaje" class="form-label">Mensaje / Descripción del Proyecto *</label>
+                                        <textarea class="form-control" id="mensaje" name="mensaje" rows="5" 
+                                                  placeholder="Describe tu proyecto, objetivos, requerimientos específicos, tecnologías preferidas, etc." required></textarea>
+                                        <div class="invalid-feedback">
+                                            Por favor describe tu proyecto.
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Opciones adicionales -->
+                                    <div class="col-12 mt-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" value="si">
+                                            <label class="form-check-label" for="newsletter">
+                                                Suscribirme al newsletter para recibir novedades y ofertas especiales
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="llamada" name="llamada" value="si">
+                                            <label class="form-check-label" for="llamada">
+                                                Prefiero ser contactado por teléfono en lugar de email
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terminos" name="terminos" required>
+                                            <label class="form-check-label" for="terminos">
+                                                Acepto los <a href="#" class="text-decoration-none">términos y condiciones</a> y la <a href="#" class="text-decoration-none">política de privacidad</a> *
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                Debes aceptar los términos y condiciones.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                                            <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                        </button>
+                                        <div class="form-text mt-2">
+                                            * Campos obligatorios | Respuesta garantizada en menos de 24 horas
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA Y UBICACIÓN -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Nuestra Ubicación</h2>
+                    <p class="section-subtitle">Visítanos en nuestras oficinas en el corazón de Santiago</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-8">
+                    <!-- Mapa simulado -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.3736384447893!2d-70.6506700857722!3d-33.44097208076614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410e12e5b7%3A0x8a5fe54b7c3b4b2e!2sLas%20Condes%2C%20Santiago%2C%20Chile!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0; border-radius: 15px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">Información de Visita</h5>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                                <div>
+                                    <strong>Dirección:</strong><br>
+                                    Av. Tecnología 123, Piso 15<br>
+                                    Las Condes, Santiago<br>
+                                    Chile 7500000
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-clock text-primary me-3 mt-1"></i>
+                                <div>
+                                    <strong>Horarios de Atención:</strong><br>
+                                    Lunes a Viernes: 9:00 - 18:00<br>
+                                    Sábados: 10:00 - 14:00<br>
+                                    Domingos: Cerrado
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-subway text-primary me-3 mt-1"></i>
+                                <div>
+                                    <strong>Transporte Público:</strong><br>
+                                    Metro: Estación Tobalaba (L1, L4)<br>
+                                    Bus: Líneas 210, 422, 516<br>
+                                    Estacionamiento disponible
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-info-circle text-primary me-3 mt-1"></i>
+                                <div>
+                                    <strong>Nota:</strong><br>
+                                    Se requiere cita previa para visitas.<br>
+                                    Contacta para agendar reunión.
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <a href="tel:+56221234567" class="btn btn-primary w-100 mb-2">
+                                    <i class="fas fa-phone me-2"></i>Llamar para Cita
+                                </a>
+                                <a href="https://maps.google.com" target="_blank" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-directions me-2"></i>Obtener Direcciones
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECCIÓN -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Preguntas Frecuentes</h2>
+                    <p class="section-subtitle">Respuestas a las consultas más comunes de nuestros clientes</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Cuánto tiempo toma desarrollar un proyecto?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El tiempo varía según la complejidad del proyecto. Un sitio web básico puede tomar 2-4 semanas, mientras que aplicaciones empresariales complejas pueden requerir 3-6 meses. Proporcionamos estimaciones detalladas durante la consulta inicial.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿Ofrecen soporte post-implementación?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, todos nuestros proyectos incluyen 3 meses de soporte gratuito. Posteriormente, ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, monitoreo, backup y soporte técnico 24/7.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Cuáles son sus métodos de pago?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Aceptamos transferencias bancarias, tarjetas de crédito y PayPal. Para proyectos grandes, ofrecemos planes de pago divididos en hitos: 40% al inicio, 40% a mitad del desarrollo y 20% al finalizar.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Trabajan con empresas de otros países?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutamente. Trabajamos con clientes en toda Latinoamérica, Estados Unidos y Europa. Utilizamos herramientas de colaboración remota y adaptamos nuestros horarios para facilitar la comunicación internacional.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 5 -->
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    ¿Qué tecnologías utilizan?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Utilizamos tecnologías modernas como React, Node.js, Python, .NET, AWS, Docker, y metodologías ágiles. Seleccionamos la mejor stack tecnológica según las necesidades específicas de cada proyecto.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-primary text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-4">¿Listo para Comenzar?</h2>
+                    <p class="fs-5 mb-5">Conversemos sobre tu proyecto y descubre cómo podemos ayudarte a alcanzar tus objetivos.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <button onclick="scrollToForm()" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-edit me-2"></i>Llenar Formulario
+                        </button>
+                        <a href="tel:+56221234567" class="btn btn-outline-light btn-lg px-5">
+                            <i class="fas fa-phone me-2"></i>Llamar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-title d-flex align-items-center">
+                            <i class="fas fa-rocket me-2"></i>TechSolutions Pro
+                        </h5>
+                        <p class="mb-4">Transformamos ideas en soluciones tecnológicas innovadoras. Más de 5 años desarrollando el futuro digital para empresas de todos los tamaños.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Servicios</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="servicios.html" class="footer-link">Desarrollo Web</a></li>
+                            <li><a href="servicios.html" class="footer-link">Apps Móviles</a></li>
+                            <li><a href="servicios.html" class="footer-link">Analytics & BI</a></li>
+                            <li><a href="servicios.html" class="footer-link">Cloud Solutions</a></li>
+                            <li><a href="servicios.html" class="footer-link">Ciberseguridad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Productos</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="productos.html" class="footer-link">ERP Enterprise</a></li>
+                            <li><a href="productos.html" class="footer-link">E-commerce Suite</a></li>
+                            <li><a href="productos.html" class="footer-link">Analytics Pro</a></li>
+                            <li><a href="productos.html" class="footer-link">Cloud Infrastructure</a></li>
+                            <li><a href="productos.html" class="footer-link">Security Suite</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Empresa</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Sobre Nosotros</a></li>
+                            <li><a href="index.html" class="footer-link">Nuestro Equipo</a></li>
+                            <li><a href="contacto.html" class="footer-link">Carreras</a></li>
+                            <li><a href="galeria.html" class="footer-link">Blog</a></li>
+                            <li><a href="contacto.html" class="footer-link">Noticias</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Newsletter</h6>
+                        <p class="mb-3">Suscríbete para recibir las últimas novedades y ofertas especiales.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 TechSolutions Pro. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Términos de Uso</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle back-to-top" 
+            onclick="scrollToTop()" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script src="js/main.js"></script>
+    
+    <!-- Script específico para la página de contacto -->
+    <script>
+        // Validación del formulario
+        (function() {
+            'use strict';
+            
+            const form = document.getElementById('contactForm');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (form.checkValidity()) {
+                    // Simular envío del formulario
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Mensaje Enviado!';
+                        submitBtn.classList.remove('btn-primary');
+                        submitBtn.classList.add('btn-success');
+                        
+                        // Mostrar mensaje de éxito
+                        showSuccessMessage();
+                        
+                        // Resetear formulario después de 3 segundos
+                        setTimeout(() => {
+                            form.reset();
+                            form.classList.remove('was-validated');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('btn-success');
+                            submitBtn.classList.add('btn-primary');
+                        }, 3000);
+                    }, 2000);
+                }
+                
+                form.classList.add('was-validated');
+            });
+        })();
+        
+        // Función para mostrar mensaje de éxito
+        function showSuccessMessage() {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-5';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.innerHTML = `
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>¡Mensaje enviado exitosamente!</strong> Nos pondremos en contacto contigo pronto.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.parentNode.removeChild(alertDiv);
+                }
+            }, 5000);
+        }
+        
+        // Función para abrir chat (simulado)
+        function openChat() {
+            alert('Chat en vivo no disponible en esta demo. ¡Utiliza el formulario de contacto o llámanos directamente!');
+        }
+        
+        // Función para hacer scroll al formulario
+        function scrollToForm() {
+            document.getElementById('contacto').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Auto-completar teléfono con formato chileno
+        document.getElementById('telefono').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('56')) {
+                value = '+' + value;
+            } else if (value.startsWith('9') && value.length === 9) {
+                value = '+56 ' + value;
+            }
+            e.target.value = value;
+        });
+    </script>
+    
+</body>
+</html>

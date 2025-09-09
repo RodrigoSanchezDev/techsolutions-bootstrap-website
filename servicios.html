@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!--
+===============================================================================
+TECHSOLUTIONS PRO - PÁGINA DE SERVICIOS
+===============================================================================
+
+ÍNDICE DE CONTENIDO:
+1. HEAD - Configuración y recursos
+   - Bootstrap 5 CSS local
+   - Font Awesome icons
+   - Google Fonts (Inter)
+   - Meta tags SEO
+
+2. NAVEGACIÓN
+   - Navbar responsivo Bootstrap
+   - Enlace activo en "Servicios"
+
+3. HERO SERVICIOS
+   - Título de página
+   - Descripción de servicios
+
+4. GRID DE SERVICIOS PRINCIPALES
+   - 6 servicios organizados en tarjetas
+   - Grid responsivo (col-12 col-md-6 col-lg-4)
+   - Servicios incluidos:
+     * Desarrollo Web
+     * Apps Móviles  
+     * Analytics & BI
+     * Cloud Computing
+     * Ciberseguridad
+     * Consultoría IT
+
+5. CALL TO ACTION
+   - Botón para contacto
+   - Información adicional
+
+6. FOOTER
+   - Enlaces de navegación
+   - Contacto e información legal
+
+CARACTERÍSTICAS TÉCNICAS:
+- Sistema de cuadrículas Bootstrap
+- Tarjetas personalizadas
+- Iconos Font Awesome
+- Animaciones CSS
+- Diseño completamente responsivo
+
+DESARROLLADO POR:
+SanchezDev.com
+Rodrigo Sanchez - rodrigo@sanchezdev.com
+© 2025 Todos los derechos reservados
+
+===============================================================================
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions Pro - Servicios</title>
+    
+    <!-- Bootstrap 5 CSS Local -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="TechSolutions Pro - Servicios de desarrollo web, aplicaciones móviles, cloud computing y más.">
+    <meta name="keywords" content="servicios, desarrollo web, aplicaciones móviles, cloud, ciberseguridad">
+    <meta name="author" content="TechSolutions Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-rocket me-2 fs-4"></i>
+                <span class="fw-bold">TechSolutions Pro</span>
+            </a>
+            
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="contacto.html">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section d-flex align-items-center bg-gradient-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold mb-4">Nuestros Servicios</h1>
+                    <p class="fs-5 mb-5">Soluciones tecnológicas integrales para impulsar tu negocio hacia el futuro digital</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#servicios" class="btn btn-light btn-lg">Explorar Servicios</a>
+                        <a href="contacto.html" class="btn btn-outline-light btn-lg">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title animate-on-scroll">Servicios Especializados</h2>
+                    <p class="section-subtitle animate-on-scroll">Ofrecemos soluciones tecnológicas de vanguardia adaptadas a las necesidades específicas de tu empresa</p>
+                </div>
+            </div>
+            
+            <!-- 
+            GRID RESPONSIVO DE TARJETAS DE SERVICIOS
+            Sistema de cuadrículas Bootstrap que implementa:
+            - col-12 col-md-6 col-lg-4: 1 columna móvil, 2 tablet, 3 desktop
+            - g-4: Espaciado uniforme entre tarjetas
+            - Componentes card personalizados con iconos, listas y call-to-action
+            - Animaciones CSS activadas por JavaScript en scroll
+            -->
+            <div class="row g-4">
+                <!-- Servicio 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-primary">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="service-title">Desarrollo Web</h4>
+                        <p class="service-description">Creamos sitios web modernos, responsivos y optimizados para SEO utilizando las últimas tecnologías como React, Vue.js y Angular.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Responsive Design</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Optimización SEO</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Performance Optimization</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Progressive Web Apps</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-success">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="service-title">Apps Móviles</h4>
+                        <p class="service-description">Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android con experiencias de usuario excepcionales.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>iOS & Android Nativo</li>
+                            <li><i class="fas fa-check text-success me-2"></i>React Native</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Flutter</li>
+                            <li><i class="fas fa-check text-success me-2"></i>UI/UX Design</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-warning">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="service-title">Analytics & BI</h4>
+                        <p class="service-description">Transformamos tus datos en insights valiosos con dashboards interactivos y sistemas de Business Intelligence avanzados.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Dashboards Interactivos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Machine Learning</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Big Data Analytics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Reportes Automáticos</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-info">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4 class="service-title">Cloud Solutions</h4>
+                        <p class="service-description">Migramos y optimizamos tu infraestructura en AWS, Azure y Google Cloud para máxima escalabilidad y seguridad.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>AWS & Azure</li>
+                            <li><i class="fas fa-check text-success me-2"></i>DevOps & CI/CD</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Microservicios</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Auto-scaling</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-danger">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="service-title">Ciberseguridad</h4>
+                        <p class="service-description">Protegemos tu empresa con auditorías de seguridad, implementación de mejores prácticas y monitoreo 24/7.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Auditorías de Seguridad</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Penetration Testing</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Compliance (ISO 27001)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Monitoreo 24/7</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon bg-secondary">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="service-title">Soporte 24/7</h4>
+                        <p class="service-description">Equipo técnico especializado disponible las 24 horas para resolver cualquier incidencia y mantener tu sistema funcionando.</p>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-check text-success me-2"></i>Soporte Técnico Especializado</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Monitoreo Proactivo</li>
+                            <li><i class="fas fa-check text-success me-2"></i>SLA del 99.9%</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Resolución Rápida</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="contacto.html" class="btn btn-primary">Solicitar Información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROCESO DE TRABAJO -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Nuestro Proceso de Trabajo</h2>
+                    <p class="section-subtitle">Metodología probada que garantiza resultados exitosos en cada proyecto</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fs-3 fw-bold">1</span>
+                        </div>
+                        <h5>Análisis</h5>
+                        <p class="text-muted">Evaluamos tus necesidades y objetivos para crear una estrategia personalizada.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fs-3 fw-bold">2</span>
+                        </div>
+                        <h5>Planificación</h5>
+                        <p class="text-muted">Diseñamos un plan detallado con cronogramas y entregables específicos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fs-3 fw-bold">3</span>
+                        </div>
+                        <h5>Desarrollo</h5>
+                        <p class="text-muted">Implementamos la solución usando las mejores prácticas y tecnologías.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <span class="fs-3 fw-bold">4</span>
+                        </div>
+                        <h5>Entrega</h5>
+                        <p class="text-muted">Desplegamos la solución y proporcionamos soporte continuo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-primary text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-4">¿Necesitas una Solución Personalizada?</h2>
+                    <p class="fs-5 mb-5">Nuestro equipo de expertos está listo para ayudarte a encontrar la solución perfecta para tu negocio.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contacto.html" class="btn btn-light btn-lg px-5">Consulta Gratuita</a>
+                        <a href="productos.html" class="btn btn-outline-light btn-lg px-5">Ver Productos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-title d-flex align-items-center">
+                            <i class="fas fa-rocket me-2"></i>TechSolutions Pro
+                        </h5>
+                        <p class="mb-4">Transformamos ideas en soluciones tecnológicas innovadoras. Más de 5 años desarrollando el futuro digital para empresas de todos los tamaños.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Servicios</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="servicios.html" class="footer-link">Desarrollo Web</a></li>
+                            <li><a href="servicios.html" class="footer-link">Apps Móviles</a></li>
+                            <li><a href="servicios.html" class="footer-link">Analytics & BI</a></li>
+                            <li><a href="servicios.html" class="footer-link">Cloud Solutions</a></li>
+                            <li><a href="servicios.html" class="footer-link">Ciberseguridad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Productos</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="productos.html" class="footer-link">ERP Enterprise</a></li>
+                            <li><a href="productos.html" class="footer-link">E-commerce Suite</a></li>
+                            <li><a href="productos.html" class="footer-link">Analytics Pro</a></li>
+                            <li><a href="productos.html" class="footer-link">Cloud Infrastructure</a></li>
+                            <li><a href="productos.html" class="footer-link">Security Suite</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Empresa</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Sobre Nosotros</a></li>
+                            <li><a href="index.html" class="footer-link">Nuestro Equipo</a></li>
+                            <li><a href="contacto.html" class="footer-link">Carreras</a></li>
+                            <li><a href="galeria.html" class="footer-link">Blog</a></li>
+                            <li><a href="contacto.html" class="footer-link">Noticias</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Newsletter</h6>
+                        <p class="mb-3">Suscríbete para recibir las últimas novedades y ofertas especiales.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 TechSolutions Pro. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Términos de Uso</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle back-to-top" 
+            onclick="scrollToTop()" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<!--
+===============================================================================
+TECHSOLUTIONS PRO - CATÁLOGO DE PRODUCTOS
+===============================================================================
+
+ÍNDICE DE CONTENIDO:
+1. HEAD - Configuración básica
+   - Bootstrap 5 CSS local
+   - Font Awesome iconos
+   - Google Fonts (Inter)
+   - Estilos personalizados
+
+2. NAVEGACIÓN
+   - Navbar Bootstrap responsivo
+   - Enlace activo en "Productos"
+
+3. HERO PRODUCTOS
+   - Título de página
+   - Call-to-action principal
+
+4. PRODUCTOS DESTACADOS
+   - 2 productos principales en cards grandes
+   - Layout col-12 col-lg-6
+   - ERP Enterprise y E-commerce Suite
+
+5. CATÁLOGO COMPLETO CON FILTROS ⭐ FUNCIONALIDAD DESTACADA
+   - Sistema de filtros JavaScript
+   - Botones de categoría (Todos, Enterprise, Analytics, Seguridad, Cloud)
+   - Grid responsivo (col-12 col-md-6 col-lg-4)
+   - 12 productos organizados por categorías
+   - Filtrado dinámico con data-category
+
+6. PLANES DE PRECIOS
+   - 3 planes: Básico, Profesional, Enterprise
+   - Tarjetas de precios comparativas
+   - Listas de características incluidas
+
+7. CALL TO ACTION
+   - Sección de contacto
+   - Botones de acción
+
+8. FOOTER
+   - Enlaces de navegación
+   - Información de contacto
+
+9. SCRIPT DE FILTRADO PERSONALIZADO
+   - JavaScript para filtros interactivos
+   - Manejo de eventos click
+   - Toggle de visibilidad de productos
+
+CARACTERÍSTICAS TÉCNICAS:
+- Sistema de filtros con JavaScript
+- Data attributes (data-filter, data-category)
+- Grid system Bootstrap responsive
+- Cards uniformes con pricing
+- Animaciones CSS
+
+DESARROLLADO POR:
+SanchezDev.com
+Rodrigo Sanchez - rodrigo@sanchezdev.com
+© 2025 Todos los derechos reservados
+
+===============================================================================
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions Pro - Productos</title>
+    
+    <!-- Bootstrap 5 CSS Local -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="TechSolutions Pro - Productos y soluciones tecnológicas empresariales. ERP, E-commerce, Analytics y más.">
+    <meta name="keywords" content="productos, software, ERP, e-commerce, analytics, soluciones">
+    <meta name="author" content="TechSolutions Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-rocket me-2 fs-4"></i>
+                <span class="fw-bold">TechSolutions Pro</span>
+            </a>
+            
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="contacto.html">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section d-flex align-items-center bg-gradient-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold mb-4">Nuestros Productos</h1>
+                    <p class="fs-5 mb-5">Soluciones tecnológicas empresariales que impulsan el crecimiento y la innovación</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#productos" class="btn btn-light btn-lg">Explorar Productos</a>
+                        <a href="contacto.html" class="btn btn-outline-light btn-lg">Solicitar Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section id="productos" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Productos Estrella</h2>
+                    <p class="section-subtitle">Soluciones completas diseñadas para empresas de todos los tamaños</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Producto 1: ERP Enterprise -->
+                <div class="col-12 col-lg-6">
+                    <div class="card product-card h-100 border-0 shadow-lg">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" 
+                                     class="img-fluid rounded-start h-100 object-fit-cover" alt="ERP Enterprise">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h3 class="product-title">ERP Enterprise</h3>
+                                        <span class="badge bg-primary fs-6">Estrella</span>
+                                    </div>
+                                    <p class="card-text mb-3">Sistema integral de gestión empresarial con más de 15 módulos integrados para optimizar todos los procesos de tu empresa.</p>
+                                    
+                                    <div class="features mb-3">
+                                        <h6 class="fw-bold">Características principales:</h6>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Gestión financiera completa</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Control de inventarios</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>CRM integrado</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Reporting avanzado</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="pricing">
+                                                <span class="price-label">Desde</span>
+                                                <span class="price">$299/mes</span>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                                <small class="text-muted">(4.9/5)</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <a href="contacto.html" class="btn btn-primary flex-fill">Solicitar Demo</a>
+                                            <a href="#" class="btn btn-outline-primary">Ver Más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Producto 2: E-commerce Suite -->
+                <div class="col-12 col-lg-6">
+                    <div class="card product-card h-100 border-0 shadow-lg">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" 
+                                     class="img-fluid rounded-start h-100 object-fit-cover" alt="E-commerce Suite">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h3 class="product-title">E-commerce Suite</h3>
+                                        <span class="badge bg-success fs-6">Popular</span>
+                                    </div>
+                                    <p class="card-text mb-3">Plataforma de comercio electrónico completa con todas las herramientas necesarias para vender online exitosamente.</p>
+                                    
+                                    <div class="features mb-3">
+                                        <h6 class="fw-bold">Características principales:</h6>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Tienda online completa</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Pasarelas de pago múltiples</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Gestión de inventario</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Analytics de ventas</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="pricing">
+                                                <span class="price-label">Desde</span>
+                                                <span class="price">$199/mes</span>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                                <small class="text-muted">(4.8/5)</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <a href="contacto.html" class="btn btn-primary flex-fill">Prueba Gratis</a>
+                                            <a href="#" class="btn btn-outline-primary">Ver Demo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    CATÁLOGO DE PRODUCTOS CON FILTRADO DINÁMICO
+    Sección que combina múltiples características de Bootstrap:
+    - Sistema de filtros con JavaScript para mostrar/ocultar productos
+    - Grid responsivo: col-12 col-md-6 col-lg-4 (1, 2, 3 columnas)
+    - Tarjetas (cards) uniformes con contenido estructurado
+    - data-category para filtrado funcional por categorías
+    - Animaciones en scroll para mejorar la experiencia visual
+    -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Catálogo Completo</h2>
+                    <p class="section-subtitle">Explora todas nuestras soluciones tecnológicas organizadas por categoría</p>
+                </div>
+            </div>
+            
+            <!-- 
+            SISTEMA DE FILTROS INTERACTIVO
+            Botones que implementan filtrado dinámico mediante JavaScript:
+            - data-filter: Atributo para identificar categoría objetivo
+            - Clase 'active' para indicar filtro actual seleccionado
+            - Responsive con flexbox y gap para espaciado uniforme
+            -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <button class="btn btn-outline-primary active" data-filter="all">Todos</button>
+                        <button class="btn btn-outline-primary" data-filter="enterprise">Enterprise</button>
+                        <button class="btn btn-outline-primary" data-filter="analytics">Analytics</button>
+                        <button class="btn btn-outline-primary" data-filter="security">Seguridad</button>
+                        <button class="btn btn-outline-primary" data-filter="cloud">Cloud</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="productos-grid">
+                <!-- Analytics Pro -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="analytics">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Analytics Pro">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-warning">Analytics</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">Analytics Pro</h5>
+                            <p class="card-text mb-3">Plataforma de inteligencia de negocios que transforma datos en insights accionables para tomar mejores decisiones.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-chart-line text-primary me-2"></i>Dashboards interactivos</li>
+                                    <li><i class="fas fa-robot text-primary me-2"></i>IA predictiva</li>
+                                    <li><i class="fas fa-download text-primary me-2"></i>Reportes automáticos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$149/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Solicitar Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud Infrastructure -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="cloud">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Cloud Infrastructure">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-info">Cloud</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">Cloud Infrastructure</h5>
+                            <p class="card-text mb-3">Solución completa de infraestructura en la nube con escalabilidad automática y alta disponibilidad.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-cloud text-info me-2"></i>Auto-scaling</li>
+                                    <li><i class="fas fa-shield-alt text-info me-2"></i>99.9% uptime</li>
+                                    <li><i class="fas fa-backup text-info me-2"></i>Backup automático</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$99/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Migrar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security Suite -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="security">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Security Suite">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-danger">Seguridad</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">Security Suite</h5>
+                            <p class="card-text mb-3">Suite completa de ciberseguridad que protege tu empresa contra amenazas digitales avanzadas.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-eye text-danger me-2"></i>Monitoreo 24/7</li>
+                                    <li><i class="fas fa-virus text-danger me-2"></i>Anti-malware avanzado</li>
+                                    <li><i class="fas fa-key text-danger me-2"></i>Gestión de accesos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$199/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Auditoría Gratis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CRM Enterprise -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="enterprise">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="CRM Enterprise">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-primary">Enterprise</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">CRM Enterprise</h5>
+                            <p class="card-text mb-3">Sistema de gestión de relaciones con clientes que potencia las ventas y mejora la satisfacción del cliente.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-users text-primary me-2"></i>Gestión de leads</li>
+                                    <li><i class="fas fa-chart-bar text-primary me-2"></i>Pipeline de ventas</li>
+                                    <li><i class="fas fa-envelope text-primary me-2"></i>Email marketing</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$129/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Prueba 30 Días</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile App Builder -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="enterprise">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Mobile App Builder">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-success">Nuevo</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">Mobile App Builder</h5>
+                            <p class="card-text mb-3">Plataforma no-code para crear aplicaciones móviles profesionales sin necesidad de programar.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-mobile-alt text-success me-2"></i>Drag & Drop</li>
+                                    <li><i class="fas fa-store text-success me-2"></i>Publicación en stores</li>
+                                    <li><i class="fas fa-cog text-success me-2"></i>Templates incluidos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$79/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Crear App</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IoT Platform -->
+                <div class="col-12 col-md-6 col-lg-4 product-item" data-category="analytics">
+                    <div class="card product-card h-100 animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="IoT Platform">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-secondary">IoT</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="product-title">IoT Platform</h5>
+                            <p class="card-text mb-3">Plataforma integral para conectar, monitorear y gestionar dispositivos IoT a escala empresarial.</p>
+                            
+                            <div class="features mb-3">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-wifi text-secondary me-2"></i>Conectividad global</li>
+                                    <li><i class="fas fa-tachometer-alt text-secondary me-2"></i>Monitoreo real-time</li>
+                                    <li><i class="fas fa-bell text-secondary me-2"></i>Alertas inteligentes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="pricing">
+                                        <span class="price">$249/mes</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <a href="contacto.html" class="btn btn-outline-primary w-100">Conectar Dispositivos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES Y PRECIOS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Planes y Precios</h2>
+                    <p class="section-subtitle">Encuentra el plan perfecto para tu empresa</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Plan Básico -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <h3 class="plan-name">Básico</h3>
+                            <div class="price-display mb-4">
+                                <span class="price-amount">$99</span>
+                                <span class="price-period">/mes</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hasta 5 usuarios</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>2 productos incluidos</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte por email</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Reportes básicos</li>
+                                <li class="mb-2 text-muted"><i class="fas fa-times me-2"></i>Integraciones avanzadas</li>
+                            </ul>
+                            <a href="contacto.html" class="btn btn-outline-primary w-100">Empezar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plan Profesional -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card h-100 border-0 shadow position-relative">
+                        <div class="position-absolute top-0 start-50 translate-middle">
+                            <span class="badge bg-primary px-3 py-2">Más Popular</span>
+                        </div>
+                        <div class="card-body text-center p-5">
+                            <h3 class="plan-name">Profesional</h3>
+                            <div class="price-display mb-4">
+                                <span class="price-amount">$199</span>
+                                <span class="price-period">/mes</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hasta 20 usuarios</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>5 productos incluidos</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte prioritario</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Analytics avanzados</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integraciones incluidas</li>
+                            </ul>
+                            <a href="contacto.html" class="btn btn-primary w-100">Elegir Plan</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plan Enterprise -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <h3 class="plan-name">Enterprise</h3>
+                            <div class="price-display mb-4">
+                                <span class="price-amount">$399</span>
+                                <span class="price-period">/mes</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Usuarios ilimitados</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Todos los productos</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte 24/7</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom features</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Implementación dedicada</li>
+                            </ul>
+                            <a href="contacto.html" class="btn btn-outline-primary w-100">Contactar Ventas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-primary text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-4">¿Listo para Transformar tu Empresa?</h2>
+                    <p class="fs-5 mb-5">Únete a más de 1,000 empresas que ya confían en nuestras soluciones tecnológicas.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contacto.html" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-rocket me-2"></i>Empezar Ahora
+                        </a>
+                        <a href="galeria.html" class="btn btn-outline-light btn-lg px-5">
+                            <i class="fas fa-eye me-2"></i>Ver Casos de Éxito
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-title d-flex align-items-center">
+                            <i class="fas fa-rocket me-2"></i>TechSolutions Pro
+                        </h5>
+                        <p class="mb-4">Transformamos ideas en soluciones tecnológicas innovadoras. Más de 5 años desarrollando el futuro digital para empresas de todos los tamaños.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Servicios</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="servicios.html" class="footer-link">Desarrollo Web</a></li>
+                            <li><a href="servicios.html" class="footer-link">Apps Móviles</a></li>
+                            <li><a href="servicios.html" class="footer-link">Analytics & BI</a></li>
+                            <li><a href="servicios.html" class="footer-link">Cloud Solutions</a></li>
+                            <li><a href="servicios.html" class="footer-link">Ciberseguridad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Productos</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="productos.html" class="footer-link">ERP Enterprise</a></li>
+                            <li><a href="productos.html" class="footer-link">E-commerce Suite</a></li>
+                            <li><a href="productos.html" class="footer-link">Analytics Pro</a></li>
+                            <li><a href="productos.html" class="footer-link">Cloud Infrastructure</a></li>
+                            <li><a href="productos.html" class="footer-link">Security Suite</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Empresa</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Sobre Nosotros</a></li>
+                            <li><a href="index.html" class="footer-link">Nuestro Equipo</a></li>
+                            <li><a href="contacto.html" class="footer-link">Carreras</a></li>
+                            <li><a href="galeria.html" class="footer-link">Blog</a></li>
+                            <li><a href="contacto.html" class="footer-link">Noticias</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Newsletter</h6>
+                        <p class="mb-3">Suscríbete para recibir las últimas novedades y ofertas especiales.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 TechSolutions Pro. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Términos de Uso</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle back-to-top" 
+            onclick="scrollToTop()" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script src="js/main.js"></script>
+    
+    <!-- 
+    SCRIPT DE FILTRADO DINÁMICO DE PRODUCTOS
+    Implementa funcionalidad interactiva para filtrar productos:
+    - Selecciona botones con atributo data-filter
+    - Maneja eventos click para cambiar filtros activos
+    - Compara data-category de productos con filtro seleccionado
+    - Muestra/oculta productos usando display CSS
+    - Mantiene animaciones activas en elementos filtrados
+    - Mejora la experiencia de usuario al navegar el catálogo
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('[data-filter]');
+            const productItems = document.querySelectorAll('.product-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Actualizar botón activo
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrar productos
+                    productItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            // Asegurar que las animaciones se apliquen correctamente
+                            const cardInside = item.querySelector('.product-card');
+                            if (cardInside) {
+                                cardInside.classList.add('animate-on-scroll', 'animated');
+                            }
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

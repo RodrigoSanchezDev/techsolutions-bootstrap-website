@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+===============================================================================
+TECHSOLUTIONS PRO - PÁGINA DE PRUEBAS
+===============================================================================
+
+ARCHIVO DE DESARROLLO Y TESTING:
+- Página para probar componentes Bootstrap
+- Verificación de funcionalidades
+- Testing de responsive design
+- Validación de JavaScript
+
+CONTENIDO:
+1. HEAD básico con Bootstrap
+2. Navbar mínimo
+3. Contenido de prueba
+4. Scripts de testing
+
+PROPÓSITO:
+Archivo temporal para desarrollo y testing de componentes
+
+DESARROLLADO POR:
+SanchezDev.com
+Rodrigo Sanchez - rodrigo@sanchezdev.com
+© 2025 Todos los derechos reservados
+
+===============================================================================
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Funcionalidad del Navbar</title>
+    
+    <!-- Bootstrap 5 CSS Local -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <!-- NAVBAR DE PRUEBA -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-rocket me-2 fs-4"></i>
+                <span class="fw-bold">TechSolutions Pro</span>
+            </a>
+            
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="contacto.html">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO DE PRUEBA -->
+    <div style="margin-top: 100px; padding: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Página de Prueba - Funcionalidad</h1>
+                    <p>Esta es una página de prueba para verificar que:</p>
+                    <ul>
+                        <li>✅ El clic derecho funciona (haz clic derecho en esta página)</li>
+                        <li>✅ La selección de texto funciona (selecciona este texto)</li>
+                        <li>✅ El navbar es clickeable</li>
+                        <li>✅ El botón hamburguesa funciona en móviles</li>
+                    </ul>
+                    
+                    <h3>Instrucciones de Prueba:</h3>
+                    <ol>
+                        <li><strong>Prueba el clic derecho:</strong> Haz clic derecho en cualquier parte de esta página</li>
+                        <li><strong>Prueba la selección:</strong> Selecciona este texto con el mouse</li>
+                        <li><strong>Prueba el navbar:</strong> Haz clic en los enlaces del menú superior</li>
+                        <li><strong>Prueba responsive:</strong> Reduce el tamaño de la ventana y prueba el botón hamburguesa</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-4">
+                        <h4>Console del Navegador:</h4>
+                        <p>Abre las herramientas de desarrollador (F12) y revisa la consola para ver los mensajes de diagnóstico.</p>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="testFunction()">Probar JavaScript</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script src="js/main.js"></script>
+    
+    <script>
+        function testFunction() {
+            alert('¡JavaScript funciona correctamente!');
+            console.log('Función de prueba ejecutada correctamente');
+        }
+        
+        // Diagnósticos adicionales
+        console.log('=== DIAGNÓSTICOS DE FUNCIONALIDAD ===');
+        console.log('Bootstrap disponible:', typeof bootstrap !== 'undefined');
+        console.log('jQuery disponible:', typeof $ !== 'undefined');
+        console.log('User-select permitido:', getComputedStyle(document.body).userSelect);
+        console.log('Pointer-events permitido:', getComputedStyle(document.body).pointerEvents);
+        
+        // Probar eventos
+        document.addEventListener('contextmenu', function(e) {
+            console.log('Clic derecho detectado - funciona correctamente');
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            console.log('Selección de texto detectada - funciona correctamente');
+        });
+    </script>
+    
+</body>
+</html>

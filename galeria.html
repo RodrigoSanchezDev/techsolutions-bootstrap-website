@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<!--
+===============================================================================
+TECHSOLUTIONS PRO - GALERÍA DE PROYECTOS
+===============================================================================
+
+ÍNDICE DE CONTENIDO:
+1. HEAD - Recursos y metadatos
+   - Bootstrap 5 CSS local
+   - Font Awesome para iconos
+   - Google Fonts (Inter)
+   - CSS personalizado
+
+2. NAVEGACIÓN
+   - Navbar Bootstrap responsivo
+   - Enlace activo en "Galería"
+
+3. HERO GALERÍA
+   - Título y descripción de página
+
+4. CARRUSEL PRINCIPAL ⭐ COMPONENTE DESTACADO
+   - Carousel Bootstrap 5
+   - data-bs-interval="3000" (cambio automático cada 3 segundos)
+   - 5 slides con proyectos destacados
+   - Indicadores y controles de navegación
+   - Captions con información de proyectos
+   - Transiciones suaves (carousel-fade)
+
+5. GRID DE PROYECTOS
+   - Galería de proyectos adicionales
+   - Tarjetas con imágenes y descripción
+   - Layout responsivo
+
+6. TESTIMONIOS
+   - Testimonios de clientes
+   - Tarjetas con avatares y comentarios
+
+7. FOOTER
+   - Enlaces y contacto
+
+COMPONENTES BOOTSTRAP UTILIZADOS:
+- Carousel (con intervalo automático)
+- Cards
+- Grid system
+- Navbar responsivo
+- Buttons y badges
+
+DESARROLLADO POR:
+SanchezDev.com
+Rodrigo Sanchez - rodrigo@sanchezdev.com
+© 2025 Todos los derechos reservados
+
+===============================================================================
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions Pro - Galería</title>
+    
+    <!-- Bootstrap 5 CSS Local -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="TechSolutions Pro - Galería de proyectos y trabajos realizados. Carrusel con nuestros mejores desarrollos.">
+    <meta name="keywords" content="galería, proyectos, carrusel, trabajos, portfolio">
+    <meta name="author" content="TechSolutions Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+
+<body>
+    
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-rocket me-2 fs-4"></i>
+                <span class="fw-bold">TechSolutions Pro</span>
+            </a>
+            
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="contacto.html">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section d-flex align-items-center bg-gradient-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold mb-4">Galería de Proyectos</h1>
+                    <p class="fs-5 mb-5">Descubre algunos de nuestros trabajos más destacados y las tecnologías que utilizamos</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#galeria" class="btn btn-light btn-lg">Ver Galería</a>
+                        <a href="contacto.html" class="btn btn-outline-light btn-lg">Trabajar Juntos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Carrusel de Proyectos Destacados</h2>
+                    <p class="section-subtitle">Explora nuestros proyectos más exitosos con cambio automático cada 3 segundos</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <!-- 
+                    CARRUSEL DE BOOTSTRAP 5 - COMPONENTE PRINCIPAL
+                    Implementación completa del carousel de Bootstrap con:
+                    - data-bs-interval="3000": Cambio automático cada 3 segundos
+                    - carousel-fade: Transiciones suaves entre slides
+                    - Indicadores y controles de navegación
+                    - Captions responsivos con información de cada proyecto
+                    - Imágenes optimizadas y accesibles con alt text
+                    -->
+                    <div id="imageCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+                        <!-- Indicadores modernos -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4"></button>
+                        </div>
+                        
+                        <!-- Slides del carrusel -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=500&fit=crop" 
+                                     class="d-block w-100" alt="Desarrollo Web">
+                                <div class="carousel-caption">
+                                    <h3 class="mb-3">Desarrollo Web Moderno</h3>
+                                    <p class="mb-4">Plataforma e-commerce completa con más de 10,000 productos y procesamiento de pagos en tiempo real</p>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-primary">React</span>
+                                        <span class="badge bg-success">Node.js</span>
+                                        <span class="badge bg-warning">MongoDB</span>
+                                    </div>
+                                    <a href="contacto.html" class="btn btn-primary">Ver Más Detalles</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=1200&h=500&fit=crop" 
+                                     class="d-block w-100" alt="Aplicaciones Móviles">
+                                <div class="carousel-caption">
+                                    <h3 class="mb-3">App Móvil Fintech</h3>
+                                    <p class="mb-4">Aplicación bancaria con más de 50,000 usuarios activos y transacciones seguras</p>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-info">React Native</span>
+                                        <span class="badge bg-danger">Firebase</span>
+                                        <span class="badge bg-secondary">Blockchain</span>
+                                    </div>
+                                    <a href="contacto.html" class="btn btn-primary">Solicitar Demo</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=500&fit=crop" 
+                                     class="d-block w-100" alt="Análisis de Datos">
+                                <div class="carousel-caption">
+                                    <h3 class="mb-3">Dashboard Analytics</h3>
+                                    <p class="mb-4">Sistema de inteligencia de negocios que procesa más de 1 millón de registros diarios</p>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-warning">Python</span>
+                                        <span class="badge bg-success">TensorFlow</span>
+                                        <span class="badge bg-primary">Power BI</span>
+                                    </div>
+                                    <a href="productos.html" class="btn btn-primary">Ver Producto</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200&h=500&fit=crop" 
+                                     class="d-block w-100" alt="Cloud Computing">
+                                <div class="carousel-caption">
+                                    <h3 class="mb-3">Infraestructura Cloud</h3>
+                                    <p class="mb-4">Migración completa a AWS con reducción del 40% en costos operativos</p>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-warning">AWS</span>
+                                        <span class="badge bg-info">Docker</span>
+                                        <span class="badge bg-success">Kubernetes</span>
+                                    </div>
+                                    <a href="servicios.html" class="btn btn-primary">Explorar Servicios</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=500&fit=crop" 
+                                     class="d-block w-100" alt="Inteligencia Artificial">
+                                <div class="carousel-caption">
+                                    <h3 class="mb-3">Sistema de IA</h3>
+                                    <p class="mb-4">Chatbot inteligente con procesamiento de lenguaje natural y 95% de precisión</p>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-danger">TensorFlow</span>
+                                        <span class="badge bg-primary">OpenAI</span>
+                                        <span class="badge bg-secondary">NLP</span>
+                                    </div>
+                                    <a href="contacto.html" class="btn btn-primary">Consultar Proyecto</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Controles de navegación -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA GRID DE PROYECTOS -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Más Proyectos</h2>
+                    <p class="section-subtitle">Explora otros trabajos destacados organizados en grid responsivo</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Proyecto 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Sistema ERP">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">Sistema ERP Empresarial</h5>
+                            <p class="card-text">Solución integral para gestión empresarial con más de 15 módulos integrados.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-primary">Angular</span>
+                                <span class="badge bg-success">.NET Core</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Ver Caso de Estudio</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Plataforma Educativa">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">Plataforma Educativa</h5>
+                            <p class="card-text">LMS con videoconferencias, evaluaciones automáticas y seguimiento de progreso.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-info">Vue.js</span>
+                                <span class="badge bg-warning">Laravel</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Ver Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Dashboard IoT">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-warning opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">Dashboard IoT</h5>
+                            <p class="card-text">Monitoreo en tiempo real de dispositivos IoT con alertas inteligentes.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-danger">React</span>
+                                <span class="badge bg-secondary">MQTT</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Solicitar Info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="App Delivery">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-info opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">App de Delivery</h5>
+                            <p class="card-text">Aplicación completa con geolocalización, pagos y tracking en tiempo real.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-success">Flutter</span>
+                                <span class="badge bg-primary">Firebase</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Ver Funcionalidades</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Sistema Hospitalario">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-danger opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">Sistema Hospitalario</h5>
+                            <p class="card-text">Gestión integral de pacientes, citas médicas y expedientes digitales.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-primary">React</span>
+                                <span class="badge bg-success">Spring Boot</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Conocer Más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card product-card animate-on-scroll">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" 
+                                 class="card-img-top" alt="Portal Inmobiliario">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-secondary opacity-25"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="product-title">Portal Inmobiliario</h5>
+                            <p class="card-text">Plataforma de compra/venta con tours virtuales y calculadora de créditos.</p>
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-warning">Next.js</span>
+                                <span class="badge bg-info">PostgreSQL</span>
+                            </div>
+                            <a href="contacto.html" class="btn btn-outline-primary">Explorar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TESTIMONIOS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+                    <p class="section-subtitle">Testimonios reales de empresas que confiaron en nosotros</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-quote-left text-primary fs-3"></i>
+                            </div>
+                            <p class="card-text">"Excelente trabajo en nuestro sistema ERP. Lograron automatizar procesos que nos ahorran 20 horas semanales."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" 
+                                     alt="Cliente" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                <div>
+                                    <h6 class="mb-0">Carlos Mendoza</h6>
+                                    <small class="text-muted">CEO, InnovaCorp</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-quote-left text-success fs-3"></i>
+                            </div>
+                            <p class="card-text">"La aplicación móvil superó nuestras expectativas. Nuestros clientes la califican con 4.8 estrellas."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face" 
+                                     alt="Cliente" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                <div>
+                                    <h6 class="mb-0">María González</h6>
+                                    <small class="text-muted">Directora Digital, RetailPlus</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-quote-left text-warning fs-3"></i>
+                            </div>
+                            <p class="card-text">"Profesionales excepcionales. Cumplieron todos los plazos y el soporte post-implementación es extraordinario."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" 
+                                     alt="Cliente" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                                <div>
+                                    <h6 class="mb-0">Roberto Silva</h6>
+                                    <small class="text-muted">CTO, HealthTech</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-gradient-primary text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-4">¿Tienes un Proyecto en Mente?</h2>
+                    <p class="fs-5 mb-5">Convirtamos tu idea en el próximo proyecto destacado de nuestra galería.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contacto.html" class="btn btn-light btn-lg px-5">Iniciar Proyecto</a>
+                        <a href="productos.html" class="btn btn-outline-light btn-lg px-5">Ver Soluciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-title d-flex align-items-center">
+                            <i class="fas fa-rocket me-2"></i>TechSolutions Pro
+                        </h5>
+                        <p class="mb-4">Transformamos ideas en soluciones tecnológicas innovadoras. Más de 5 años desarrollando el futuro digital para empresas de todos los tamaños.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Servicios</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="servicios.html" class="footer-link">Desarrollo Web</a></li>
+                            <li><a href="servicios.html" class="footer-link">Apps Móviles</a></li>
+                            <li><a href="servicios.html" class="footer-link">Analytics & BI</a></li>
+                            <li><a href="servicios.html" class="footer-link">Cloud Solutions</a></li>
+                            <li><a href="servicios.html" class="footer-link">Ciberseguridad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Productos</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="productos.html" class="footer-link">ERP Enterprise</a></li>
+                            <li><a href="productos.html" class="footer-link">E-commerce Suite</a></li>
+                            <li><a href="productos.html" class="footer-link">Analytics Pro</a></li>
+                            <li><a href="productos.html" class="footer-link">Cloud Infrastructure</a></li>
+                            <li><a href="productos.html" class="footer-link">Security Suite</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Empresa</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="footer-link">Sobre Nosotros</a></li>
+                            <li><a href="index.html" class="footer-link">Nuestro Equipo</a></li>
+                            <li><a href="contacto.html" class="footer-link">Carreras</a></li>
+                            <li><a href="galeria.html" class="footer-link">Blog</a></li>
+                            <li><a href="contacto.html" class="footer-link">Noticias</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h6 class="footer-title">Newsletter</h6>
+                        <p class="mb-3">Suscríbete para recibir las últimas novedades y ofertas especiales.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 TechSolutions Pro. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Términos de Uso</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle back-to-top" 
+            onclick="scrollToTop()" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script src="js/main.js"></script>
+    
+</body>
+</html>
