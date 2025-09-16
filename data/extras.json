@@ -1,0 +1,54 @@
+{
+  "estadisticas": [
+    {
+      "numero": 150,
+      "descripcion": "Proyectos Completados",
+      "icono": "fas fa-project-diagram",
+      "animacionDelay": 0
+    },
+    {
+      "numero": 50,
+      "descripcion": "Clientes Satisfechos",
+      "icono": "fas fa-users",
+      "animacionDelay": 200
+    },
+    {
+      "numero": 5,
+      "descripcion": "Años de Experiencia",
+      "icono": "fas fa-calendar-alt",
+      "animacionDelay": 400
+    },
+    {
+      "numero": 24,
+      "descripcion": "Soporte 24/7",
+      "icono": "fas fa-clock",
+      "animacionDelay": 600
+    }
+  ],
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Nueva Certificación AWS Advanced",
+      "descripcion": "Nuestro equipo obtiene certificación AWS Solutions Architect Professional",
+      "fecha": "2025-09-10",
+      "categoria": "certificaciones",
+      "imagen": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 2,
+      "titulo": "Proyecto IoT Premiado",
+      "descripcion": "Ganamos el premio 'Mejor Innovación IoT 2025' en TechConf",
+      "fecha": "2025-09-05",
+      "categoria": "premios",
+      "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 3,
+      "titulo": "Expansión Internacional",
+      "descripcion": "Abrimos oficina en Miami para atender mercado norteamericano",
+      "fecha": "2025-08-28",
+      "categoria": "empresa",
+      "imagen": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop"
+    }
+  ]
+}

@@ -337,6 +337,36 @@ body {
 .service-icon i {
   position: relative;
   z-index: 2;
+  color: white !important;
+}
+
+/* Estilos específicos para iconos de estadísticas */
+.stats-section .service-icon,
+.stats-section .service-icon i,
+.stats-section i.fas,
+.stats-section i.fab,
+.stats-section i.far {
+  color: white !important;
+}
+
+/* Asegurar que todos los iconos FontAwesome sean blancos en la sección de estadísticas */
+.stats-section .fa-solid,
+.stats-section .fa-regular, 
+.stats-section .fa-brands {
+  color: white !important;
+}
+
+/* Estilos adicionales para iconos blancos en estadísticas */
+.bg-gradient-primary .service-icon,
+.bg-gradient-primary .service-icon i,
+.bg-gradient-primary i {
+  color: white !important;
+}
+
+/* Forzar iconos blancos en cualquier contenedor con gradiente */
+[style*="background"] .service-icon i,
+[class*="bg-"] .service-icon i {
+  color: white !important;
 }
 
 .service-title {
@@ -417,6 +447,140 @@ body {
 .btn-primary-custom:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
+}
+
+/*
+===============================================================================
+SISTEMA DE FILTROS DE PRODUCTOS
+===============================================================================
+Estilos para los botones de filtro, búsqueda y transiciones
+*/
+
+/* Barra de búsqueda */
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-container .input-group {
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-container .input-group:focus-within {
+  box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+}
+
+.search-container .input-group-text {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-right: none;
+}
+
+.search-container .form-control {
+  border: 1px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.search-container .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.search-container .btn {
+  border-radius: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/* Botones de filtro */
+.filter-buttons {
+  margin-bottom: 2rem;
+}
+
+.filter-buttons .btn {
+  margin: 0.25rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-buttons .btn.active {
+  background: var(--gradient-primary) !important;
+  border-color: var(--primary-color) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+}
+
+.filter-buttons .btn.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.filter-buttons .btn.active:hover::before {
+  left: 100%;
+}
+
+/* Animaciones de filtrado */
+.product-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-item.filtered-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.product-item.filtered-in {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Mensaje de sin resultados */
+.no-products-message {
+  padding: 3rem 1rem;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.no-products-message i {
+  font-size: 3rem;
+  color: var(--light-gray);
+  margin-bottom: 1rem;
+}
+
+.no-products-message h4 {
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn-outline-custom {

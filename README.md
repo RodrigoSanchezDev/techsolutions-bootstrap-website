@@ -24,7 +24,7 @@
 
 ## 📖 Descripción
 
-**TechSolutions Pro** es un sitio web corporativo completamente responsivo desarrollado como proyecto académico para la asignatura de **Desarrollo Frontend**. El sitio presenta servicios tecnológicos empresariales y demuestra la implementación profesional de **Bootstrap 5** con componentes avanzados.
+**TechSolutions Pro** es un sitio web corporativo completamente responsivo desarrollado como proyecto académico para la asignatura de **Desarrollo Frontend**. El sitio presenta servicios tecnológicos empresariales y demuestra la implementación profesional de **Bootstrap 5** con componentes avanzados y **JavaScript ES6+** para interactividad dinámica.
 
 ### 🎯 Objetivos del Proyecto
 - Implementar Bootstrap 5 correctamente con archivos locales
@@ -32,6 +32,9 @@
 - Desarrollar un carrusel con transiciones automáticas
 - Estructurar contenido con el sistema de cuadrículas
 - Implementar tarjetas de contenido adaptables
+- **Manipular el DOM dinámicamente con JavaScript**
+- **Implementar eventos interactivos (click, mouseover, submit)**
+- **Integrar Fetch API para carga de datos externos**
 - Aplicar convenciones de desarrollo frontend profesional
 
 ## ✨ Características
@@ -43,6 +46,10 @@
 - **Filtrado Dinámico** - Sistema de filtros JavaScript en página de productos
 - **Formularios Validados** - Validación en tiempo real con Bootstrap
 - **Animaciones Suaves** - Efectos CSS y JavaScript integrados
+- **Manipulación DOM Dinámica** - Creación y modificación de elementos en tiempo real
+- **Eventos Interactivos** - Click, mouseover y submit handlers implementados
+- **Carga de Datos Externa** - Fetch API para contenido dinámico desde JSON
+- **Gestión de Estados** - Validación académica y logging de funcionalidades
 
 ### 🎨 Diseño Visual
 - **Paleta de Colores Moderna** - Variables CSS personalizadas
@@ -56,7 +63,10 @@
 ```bash
 📦 Bootstrap 5.3.2 (Local)     # Framework CSS principal
 🎨 CSS3 Variables              # Estilos personalizados
-⚡ JavaScript ES6+             # Interactividad y funcionalidades
+⚡ JavaScript ES6+             # Interactividad y manipulación DOM
+🌐 Fetch API                   # Carga asíncrona de datos externos
+🎯 Event Handling              # Click, mouseover, submit events
+🔄 DOM Manipulation            # createElement, appendChild, innerHTML
 🔤 Font Awesome 6.4.0          # Iconografía profesional
 📝 Google Fonts (Inter)        # Tipografía moderna
 ```
@@ -66,6 +76,8 @@
 - **CSS Grid & Flexbox** - Layout moderno y flexible
 - **JavaScript Vanilla** - Sin dependencias externas adicionales
 - **Intersection Observer API** - Animaciones en scroll
+- **Promise-based Architecture** - Manejo asíncrono con async/await
+- **Error Handling** - Gestión robusta de errores en Fetch API
 
 ## 📱 Responsive Design
 
@@ -148,6 +160,106 @@ bootstrapweb/
 <form class="needs-validation" novalidate>
   <!-- Validación Bootstrap integrada -->
 </form>
+```
+
+## 🔥 Funcionalidades JavaScript Implementadas
+
+### 1. 🎛️ Manipulación del DOM Dinámica
+```javascript
+// Creación dinámica de elementos de estadísticas
+function createStatElement(stat, index) {
+    const colElement = document.createElement('div');
+    colElement.className = 'col-6 col-md-3';
+    
+    const statElement = document.createElement('div');
+    statElement.className = 'text-center';
+    
+    // Ícono dinámico
+    const iconElement = document.createElement('div');
+    iconElement.innerHTML = `<i class="${stat.icono} fs-1 text-white"></i>`;
+    
+    // Contador animado
+    const numberElement = document.createElement('h3');
+    numberElement.setAttribute('data-target', stat.numero);
+    
+    return colElement;
+}
+```
+
+### 2. 🎯 Sistema de Eventos Interactivos
+```javascript
+// Eventos Click - Filtros de productos
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        filterProducts(filter);
+    });
+});
+
+// Eventos Mouseover - Efectos hover dinámicos
+cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.classList.add('hover-effect');
+    });
+});
+
+// Eventos Submit - Validación de formularios
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    validateForm(this);
+});
+```
+
+### 3. 🌐 Integración Fetch API
+```javascript
+// Carga de datos externos desde archivos JSON
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        handleFetchError(error);
+        return null;
+    }
+}
+
+// Implementación específica para estadísticas
+async function loadEstadisticas() {
+    const data = await fetchData('./data/estadisticas.json');
+    if (data) {
+        data.estadisticas.forEach((stat, index) => {
+            const statElement = createStatElement(stat, index);
+            containerElement.appendChild(statElement);
+        });
+        animateCounters();
+    }
+}
+```
+
+### 4. 📊 Funciones de Utilidad y Validación
+```javascript
+// Animación de contadores
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const increment = target / 200;
+        // Lógica de animación...
+    });
+}
+
+// Validación académica y logging
+function initializeBasicLogs() {
+    console.log('DOM manipulation inicializado');
+    console.log('Fetch API inicializado');
+    console.log('Mouse over inicializado');
+    console.log('Click events inicializado');
+    console.log('Submit events inicializado');
+}
 ```
 
 ## 📸 Evidencias Visuales
@@ -271,7 +383,49 @@ filterButtons.forEach(button => {
     // Lógica de filtrado...
   });
 });
+
+// Fetch API para carga de datos externos
+async function initializeDynamicContent() {
+  const data = await fetchData('./data/estadisticas.json');
+  if (data) {
+    renderStatistics(data.estadisticas);
+    animateCounters();
+  }
+}
+
+// Manipulación DOM dinámica
+function createStatElement(stat, index) {
+  const element = document.createElement('div');
+  element.innerHTML = `<i class="${stat.icono}"></i>`;
+  containerElement.appendChild(element);
+}
 ```
+
+### Implementaciones de la Semana 5 - Interactividad JavaScript
+
+#### 🎛️ Manipulación del DOM
+- **Creación dinámica de elementos** con `createElement()` y `appendChild()`
+- **Modificación de contenido** usando `innerHTML` e `textContent`
+- **Gestión de clases CSS** con `classList.add()`, `classList.remove()`
+- **Atributos dinámicos** mediante `setAttribute()` y `getAttribute()`
+
+#### 🎯 Sistema de Eventos
+- **Click Events**: Filtros de productos, navegación, botones de acción
+- **Mouseover Events**: Efectos hover, tooltips, animaciones de tarjetas
+- **Submit Events**: Validación de formularios, envío de datos
+- **Scroll Events**: Animaciones al hacer scroll, navbar dinámico
+
+#### 🌐 Fetch API Integration
+- **Carga asíncrona** de datos desde archivos JSON externos
+- **Manejo de promesas** con async/await pattern
+- **Error handling** robusto con try-catch blocks
+- **Renderizado dinámico** de contenido basado en datos externos
+
+#### 📊 Funcionalidades Específicas
+- **Contadores animados** que incrementan desde 0 hasta el valor objetivo
+- **Sistema de filtros** en tiempo real para productos
+- **Validación de formularios** con feedback visual inmediato
+- **Efectos visuales** activados por eventos de usuario
 
 ### Optimizaciones Implementadas
 - **Lazy Loading** para imágenes
@@ -301,6 +455,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 ### 🎓 Proyecto Académico
 **DUOC UC - Desarrollo Frontend**  
 **Semana 4: Bootstrap 5 para Diseño Responsivo**  
+**Semana 5: Manipulación del DOM con JavaScript**  
 © 2025 Todos los derechos reservados
 
 </div>

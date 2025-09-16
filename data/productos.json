@@ -1,0 +1,112 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "ERP Enterprise Plus",
+      "categoria": "enterprise",
+      "precio": "$299/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
+      "descripcion": "Sistema ERP completo con módulos avanzados para grandes empresas",
+      "caracteristicas": [
+        "Gestión financiera completa",
+        "Control de inventarios",
+        "Recursos humanos integrado",
+        "Reportes en tiempo real",
+        "API REST completa"
+      ],
+      "tecnologias": ["Angular", ".NET Core", "SQL Server"],
+      "destacado": true
+    },
+    {
+      "id": 2,
+      "nombre": "E-commerce Pro",
+      "categoria": "ecommerce",
+      "precio": "$199/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+      "descripcion": "Plataforma de comercio electrónico con pagos integrados y analytics",
+      "caracteristicas": [
+        "Catálogo de productos ilimitado",
+        "Pasarelas de pago múltiples",
+        "Dashboard de ventas",
+        "SEO optimizado",
+        "Responsive design"
+      ],
+      "tecnologias": ["React", "Node.js", "MongoDB"],
+      "destacado": true
+    },
+    {
+      "id": 3,
+      "nombre": "Analytics Pro",
+      "categoria": "analytics",
+      "precio": "$149/mes",
+      "rating": 4,
+      "imagen": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop",
+      "descripcion": "Plataforma de inteligencia de negocios con IA predictiva",
+      "caracteristicas": [
+        "Dashboards interactivos",
+        "Machine Learning integrado",
+        "Alertas automáticas",
+        "Exportación de reportes",
+        "Integración con múltiples fuentes"
+      ],
+      "tecnologias": ["Python", "TensorFlow", "React"],
+      "destacado": false
+    },
+    {
+      "id": 4,
+      "nombre": "Cloud Infrastructure",
+      "categoria": "cloud",
+      "precio": "$249/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=250&fit=crop",
+      "descripcion": "Infraestructura cloud escalable con Docker y Kubernetes",
+      "caracteristicas": [
+        "Despliegue automático",
+        "Escalado automático",
+        "Monitoreo 24/7",
+        "Backup automático",
+        "Alta disponibilidad"
+      ],
+      "tecnologias": ["Docker", "Kubernetes", "AWS"],
+      "destacado": false
+    },
+    {
+      "id": 5,
+      "nombre": "Security Suite",
+      "categoria": "security",
+      "precio": "$179/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
+      "descripcion": "Suite completa de ciberseguridad para empresas",
+      "caracteristicas": [
+        "Firewall avanzado",
+        "Detección de amenazas",
+        "Autenticación multi-factor",
+        "Cifrado end-to-end",
+        "Auditorías de seguridad"
+      ],
+      "tecnologias": ["Python", "Blockchain", "AI"],
+      "destacado": false
+    },
+    {
+      "id": 6,
+      "nombre": "IoT Platform",
+      "categoria": "iot",
+      "precio": "$129/mes",
+      "rating": 4,
+      "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+      "descripcion": "Plataforma integral para gestión de dispositivos IoT",
+      "caracteristicas": [
+        "Conexión masiva de dispositivos",
+        "Dashboard en tiempo real",
+        "Alertas inteligentes",
+        "Análisis predictivo",
+        "Integración con sensores"
+      ],
+      "tecnologias": ["Node.js", "MQTT", "InfluxDB"],
+      "destacado": false
+    }
+  ]
+}
