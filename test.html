@@ -33,13 +33,87 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
     <title>Test - Funcionalidad del Navbar</title>
     
     <!-- Bootstrap 5 CSS Local -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Estilos personalizados -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Estilos adicionales para la página de pruebas -->
+    <style>
+        .test-buttons .btn {
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .test-buttons .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+        
+        /* Archivo No Encontrado - Rojo suave */
+        .test-buttons .btn-danger-soft {
+            background: linear-gradient(135deg, #ff6b85, #ff8ba7);
+            color: white;
+        }
+        
+        .test-buttons .btn-danger-soft:hover {
+            background: linear-gradient(135deg, #ff5577, #ff7799);
+            color: white;
+        }
+        
+        /* Error de Red - Naranja suave */
+        .test-buttons .btn-warning-soft {
+            background: linear-gradient(135deg, #ffb366, #ffc085);
+            color: white;
+        }
+        
+        .test-buttons .btn-warning-soft:hover {
+            background: linear-gradient(135deg, #ffa64d, #ffb366);
+            color: white;
+        }
+        
+        /* JSON Inválido - Azul claro suave */
+        .test-buttons .btn-info-soft {
+            background: linear-gradient(135deg, #74c0fc, #91d5ff);
+            color: white;
+        }
+        
+        .test-buttons .btn-info-soft:hover {
+            background: linear-gradient(135deg, #5db3f8, #74c0fc);
+            color: white;
+        }
+        
+        /* Carga Exitosa - Verde suave */
+        .test-buttons .btn-success-soft {
+            background: linear-gradient(135deg, #51cf66, #69db7c);
+            color: white;
+        }
+        
+        .test-buttons .btn-success-soft:hover {
+            background: linear-gradient(135deg, #40c057, #51cf66);
+            color: white;
+        }
+        
+        /* Botón JavaScript Básico - mantener estilo original pero con sombra */
+        .btn-javascript {
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-javascript:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+        }
+        
+        .card-header.bg-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -97,6 +171,7 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
                         <li>✅ La selección de texto funciona (selecciona este texto)</li>
                         <li>✅ El navbar es clickeable</li>
                         <li>✅ El botón hamburguesa funciona en móviles</li>
+                        <li>🛡️ Las validaciones de error funcionan correctamente</li>
                     </ul>
                     
                     <h3>Instrucciones de Prueba:</h3>
@@ -105,6 +180,7 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
                         <li><strong>Prueba la selección:</strong> Selecciona este texto con el mouse</li>
                         <li><strong>Prueba el navbar:</strong> Haz clic en los enlaces del menú superior</li>
                         <li><strong>Prueba responsive:</strong> Reduce el tamaño de la ventana y prueba el botón hamburguesa</li>
+                        <li><strong>Prueba errores:</strong> Usa los botones de abajo para simular errores de carga de datos</li>
                     </ol>
                     
                     <div class="alert alert-info mt-4">
@@ -112,17 +188,55 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
                         <p>Abre las herramientas de desarrollador (F12) y revisa la consola para ver los mensajes de diagnóstico.</p>
                     </div>
                     
-                    <button class="btn btn-primary" onclick="testFunction()">Probar JavaScript</button>
+                    <!-- SECCIÓN DE PRUEBAS DE ERROR -->
+                    <div class="card mt-4 border-0 shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Pruebas de Validación de Errores</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Estas pruebas demuestran cómo el sistema maneja errores cuando los datos no se pueden cargar:</p>
+                            
+                            <div class="row g-3 test-buttons">
+                                <div class="col-md-6">
+                                    <button class="btn btn-danger-soft w-100" onclick="testFileNotFound()">
+                                        <i class="fas fa-file-excel me-2"></i>Simular Archivo No Encontrado
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-warning-soft w-100" onclick="testNetworkError()">
+                                        <i class="fas fa-wifi me-2"></i>Simular Error de Red
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-info-soft w-100" onclick="testInvalidJSON()">
+                                        <i class="fas fa-code me-2"></i>Simular JSON Inválido
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-success-soft w-100" onclick="testSuccessfulLoad()">
+                                        <i class="fas fa-check me-2"></i>Carga Exitosa (Normal)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Contenedor para mostrar resultados de las pruebas -->
+                            <div id="test-results-container" class="mt-4">
+                                <!-- Los resultados de las pruebas aparecerán aquí -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-javascript mt-3" onclick="testFunction()">Probar JavaScript Básico</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     
     
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
     
     <script>
         function testFunction() {
@@ -130,12 +244,143 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
             console.log('Función de prueba ejecutada correctamente');
         }
         
+        // ===============================================================================
+        // FUNCIONES DE PRUEBA DE ERRORES
+        // ===============================================================================
+        
+        /**
+         * Simula un error 404 - Archivo no encontrado
+         */
+        async function testFileNotFound() {
+            console.log('🧪 PRUEBA: Simulando error 404 - Archivo no encontrado');
+            showTestStatus('Probando error 404...', 'info');
+            
+            try {
+                // Intentar cargar un archivo que no existe
+                const response = await fetch('assets/data/archivo_inexistente.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+            } catch (error) {
+                console.error('❌ Error capturado correctamente:', error);
+                handleFetchError(error, 'archivo de prueba');
+                showTestStatus('✅ Error 404 manejado correctamente - Revisa el mensaje de error que apareció arriba', 'success');
+            }
+        }
+        
+        /**
+         * Simula un error de red/conexión
+         */
+        async function testNetworkError() {
+            console.log('🧪 PRUEBA: Simulando error de red');
+            showTestStatus('Probando error de red...', 'info');
+            
+            try {
+                // Simular error de red con URL inválida
+                const response = await fetch('http://url-inexistente-para-prueba.test/datos.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+            } catch (error) {
+                console.error('❌ Error de red capturado correctamente:', error);
+                handleFetchError(error, 'datos de red');
+                showTestStatus('✅ Error de red manejado correctamente - Revisa el mensaje de error que apareció arriba', 'success');
+            }
+        }
+        
+        /**
+         * Simula un JSON malformado
+         */
+        async function testInvalidJSON() {
+            console.log('🧪 PRUEBA: Simulando JSON inválido');
+            showTestStatus('Probando JSON inválido...', 'info');
+            
+            try {
+                // Crear un blob con JSON inválido
+                const invalidJSON = '{ "datos": malformado json }';
+                const blob = new Blob([invalidJSON], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                // Esto debería fallar al parsear el JSON
+                const data = await response.json();
+                
+            } catch (error) {
+                console.error('❌ Error de JSON capturado correctamente:', error);
+                handleFetchError(error, 'datos JSON');
+                showTestStatus('✅ Error de JSON inválido manejado correctamente - Revisa el mensaje de error que apareció arriba', 'success');
+            }
+        }
+        
+        /**
+         * Prueba una carga exitosa de datos reales
+         */
+        async function testSuccessfulLoad() {
+            console.log('🧪 PRUEBA: Cargando datos reales exitosamente');
+            showTestStatus('Probando carga exitosa...', 'info');
+            
+            try {
+                // Cargar un archivo JSON real que existe
+                const response = await fetch('assets/data/productos.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                console.log('✅ Datos cargados exitosamente:', data);
+                showTestStatus(`✅ Carga exitosa - Se cargaron ${data.productos ? data.productos.length : 0} productos correctamente`, 'success');
+                
+            } catch (error) {
+                console.error('❌ Error inesperado:', error);
+                handleFetchError(error, 'productos');
+                showTestStatus('❌ Error inesperado en la carga', 'danger');
+            }
+        }
+        
+        /**
+         * Muestra el estado de las pruebas en la interfaz
+         */
+        function showTestStatus(message, type) {
+            const container = document.getElementById('test-results-container');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'info' ? 'info-circle' : 'exclamation-triangle'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Agregar al contenedor
+            container.appendChild(alertDiv);
+            
+            // Auto-remover después de 8 segundos si es info
+            if (type === 'info') {
+                setTimeout(() => {
+                    if (alertDiv.parentNode) {
+                        alertDiv.remove();
+                    }
+                }, 3000);
+            }
+        }
+        
+        // ===============================================================================
+        // DIAGNÓSTICOS EXISTENTES
+        // ===============================================================================
+        
         // Diagnósticos adicionales
         console.log('=== DIAGNÓSTICOS DE FUNCIONALIDAD ===');
         console.log('Bootstrap disponible:', typeof bootstrap !== 'undefined');
         console.log('jQuery disponible:', typeof $ !== 'undefined');
         console.log('User-select permitido:', getComputedStyle(document.body).userSelect);
         console.log('Pointer-events permitido:', getComputedStyle(document.body).pointerEvents);
+        console.log('Fetch API disponible:', typeof fetch !== 'undefined');
+        console.log('handleFetchError disponible:', typeof handleFetchError !== 'undefined');
         
         // Probar eventos
         document.addEventListener('contextmenu', function(e) {
@@ -145,6 +390,10 @@ Rodrigo Sanchez - rodrigo@sanchezdev.com
         document.addEventListener('selectstart', function(e) {
             console.log('Selección de texto detectada - funciona correctamente');
         });
+        
+        // Mensaje de bienvenida
+        console.log('🧪 PÁGINA DE PRUEBAS CARGADA');
+        console.log('Usa los botones de "Pruebas de Validación de Errores" para ver cómo funciona el manejo de errores');
     </script>
     
 </body>

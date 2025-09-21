@@ -103,28 +103,34 @@ xl: ≥1200px   /* Desktop grande */
 ## 🏗️ Estructura del Proyecto
 
 ```
-bootstrapweb/
-├── 📁 css/
-│   ├── bootstrap.min.css       # Bootstrap 5.3.2 local
-│   ├── bootstrap.css.map
-│   └── style.css              # Estilos personalizados
-├── 📁 js/
-│   ├── bootstrap.bundle.min.js # Bootstrap JavaScript
-│   └── main.js                # JavaScript personalizado
-├── 📁 evidencias/             # Capturas de pantalla
-│   ├── index.png              # Vista desktop principal
-│   ├── Nav-mobile.png         # Navbar móvil
-│   ├── NAV-web.png            # Navbar desktop
-│   ├── Productos-cards.png    # Página productos
-│   ├── Servicios-grid.png     # Página servicios
-│   ├── Galeria-carrusel.png   # Carrusel de galería
-│   └── Footer.png             # Footer del sitio
-├── 📁 images/                 # Recursos gráficos
+techsolutions-bootstrap-website/
+├── 📁 assets/                 # Recursos organizados profesionalmente
+│   ├── 📁 css/
+│   │   ├── bootstrap.min.css       # Bootstrap 5.3.2 local
+│   │   ├── bootstrap.css.map
+│   │   └── style.css              # Estilos personalizados
+│   ├── 📁 js/
+│   │   ├── bootstrap.bundle.min.js # Bootstrap JavaScript
+│   │   └── main.js                # JavaScript personalizado con Fetch API
+│   ├── 📁 data/               # Datos dinámicos en JSON
+│   │   ├── productos.json          # Catálogo de productos
+│   │   ├── testimonios.json        # Testimonios de clientes
+│   │   ├── proyectos.json          # Portafolio de proyectos
+│   │   └── extras.json             # Estadísticas y contenido adicional
+│   └── 📁 evidencias/         # Capturas de pantalla del proyecto
+│       ├── index.png              # Vista desktop principal
+│       ├── Nav-mobile.png         # Navbar móvil
+│       ├── NAV-web.png            # Navbar desktop
+│       ├── Productos-cards.png    # Página productos
+│       ├── Servicios-grid.png     # Página servicios
+│       ├── Galeria-carrusel.png   # Carrusel de galería
+│       └── Footer.png             # Footer del sitio
 ├── 📄 index.html              # Página principal
 ├── 📄 servicios.html          # Catálogo de servicios
 ├── 📄 galeria.html            # Carrusel de proyectos
-├── 📄 productos.html          # Productos con filtros
-├── 📄 contacto.html           # Formulario de contacto
+├── 📄 productos.html          # Productos con filtros dinámicos
+├── 📄 contacto.html           # Formulario de contacto validado
+├── 📄 test.html               # Página de pruebas
 ├── 📄 README.md               # Este archivo
 └── 📄 LICENSE                 # Licencia del proyecto
 ```

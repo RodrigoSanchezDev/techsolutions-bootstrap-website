@@ -125,10 +125,10 @@ Este módulo implementa la funcionalidad de Fetch API requerida para la activida
 - Funciones reutilizables para diferentes tipos de datos
 
 ARCHIVOS JSON UTILIZADOS:
-- data/productos.json - Catálogo de productos
-- data/testimonios.json - Testimonios de clientes
-- data/proyectos.json - Galería de proyectos
-- data/extras.json - Estadísticas y noticias
+- assets/data/productos.json - Catálogo de productos
+- assets/data/testimonios.json - Testimonios de clientes
+- assets/data/proyectos.json - Galería de proyectos
+- assets/data/extras.json - Estadísticas y noticias
 
 FUNCIONES PRINCIPALES:
 - fetchData() - Función genérica para cargar datos
@@ -172,7 +172,7 @@ async function fetchData(url, dataType = 'datos') {
  * @param {string} categoria - Filtro de categoría (opcional)
  */
 async function loadProductos(container = '#productos-container', categoria = null) {
-    const data = await fetchData('data/productos.json', 'productos');
+    const data = await fetchData('assets/data/productos.json', 'productos');
     
     if (!data || !data.productos) return;
     
@@ -207,7 +207,7 @@ async function loadProductos(container = '#productos-container', categoria = nul
  * @param {number} limite - Número máximo de testimonios a mostrar
  */
 async function loadTestimonios(container = '#testimonios-container', limite = 6) {
-    const data = await fetchData('data/testimonios.json', 'testimonios');
+    const data = await fetchData('assets/data/testimonios.json', 'testimonios');
     
     if (!data || !data.testimonios) return;
     
@@ -236,7 +236,7 @@ async function loadTestimonios(container = '#testimonios-container', limite = 6)
  * @param {boolean} soloDestacados - Mostrar solo proyectos destacados
  */
 async function loadProyectos(container = '#proyectos-container', soloDestacados = false) {
-    const data = await fetchData('data/proyectos.json', 'proyectos');
+    const data = await fetchData('assets/data/proyectos.json', 'proyectos');
     
     if (!data || !data.proyectos) return;
     
@@ -270,7 +270,7 @@ async function loadProyectos(container = '#proyectos-container', soloDestacados 
  * @param {string} container - Selector del contenedor de estadísticas
  */
 async function loadEstadisticas(container = '#estadisticas-container') {
-    const data = await fetchData('data/extras.json', 'estadísticas');
+    const data = await fetchData('assets/data/extras.json', 'estadísticas');
     
     if (!data || !data.estadisticas) return;
     
@@ -490,11 +490,6 @@ function createProductCard(producto, index) {
     actionButton.href = 'contacto.html';
     actionButton.className = 'btn btn-outline-primary w-100';
     actionButton.textContent = 'Solicitar Info';
-    
-    // Evento click en el botón
-    actionButton.addEventListener('click', function(e) {
-        // Aquí podrías agregar analytics o tracking
-    });
     
     // Ensamblar todos los elementos
     badgeContainer.appendChild(badge);
